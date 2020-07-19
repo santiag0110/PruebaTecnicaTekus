@@ -1,0 +1,37 @@
+<div class="back total">
+    <div class="container">
+        <h2>
+            Resumen
+        </h2>
+        <!--Cantidad de mediciones del cada situacion-->
+        <div class="row row-cols-6">
+            <div class="b col"><h4>Alerta</h4><p class = "btn btn-danger">{{ a }}</p></div>
+            <div class="b col"><h4>Peligro</h4><p class="btn btn-warning">{{ w }}</p></div>
+            <div class="b col"><h4>Nomal</h4><p class="btn btn-success">{{ n }}</p></div>
+        </div>
+    </div>
+    <!--Resumen de cada ciudad-->
+    <div class="container">
+        <div class="row row-cols-4">
+            <!--Recorrer la lista de medidas-->
+            <div class="col back cityList" *ngFor="let device of devices; index as i">
+                <!--Recorre la lista de ciudades-->
+                <section *ngFor="let city of cities; index as j">
+                    <!--Buscar el la medida que coincide con la ciudad-->
+                    <ng-template [ngIf]="city.Id == device.CityId">
+                        <div class="row row-cols-3">
+                            <div class="col-4 identifi"><p>{{device.Id}}</p></div>
+                            <div class="col-6 time"><div class="p point"></div><div class="p"><p>{{di[i]}}</p></div></div>
+                            <div class="col-2 temperature"><h3>{{device.Temperature}}°C</h3></div>
+                        </div>
+                        <div class="row row-cols-2">
+                            <div class="col"><strong>{{device.Name}}</strong><h3>{{city.Name}}</h3></div>
+                            <div><img src="../../../assets/images/electrical-storm-at-night_icon-icons.com_64227.png" width="90"></div>
+                        </div>
+                        
+                    </ng-template>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

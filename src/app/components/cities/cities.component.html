@@ -1,0 +1,47 @@
+<div class="container">
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Columna del Identificador -->
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td class = "bg-light" style="color: black;" mat-cell *matCellDef="let element"> {{element.Id}} </td>
+    </ng-container>
+  
+    <!-- Columna del nombre de la ciudad -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td class = "bg-light" style="color: black;" mat-cell *matCellDef="let element"> {{element.Name}} </td>
+    </ng-container>
+  
+    <!-- Columna del pais al que pertenece -->
+    <ng-container matColumnDef="Country">
+      <th mat-header-cell *matHeaderCellDef> Pais </th>
+      <td class = "bg-light" style="color: black;" mat-cell *matCellDef="let element"> {{element.Country}} </td>
+    </ng-container>
+  
+    <!-- Columna con la cantidad de ciudades que marcan medidas de alerta -->
+    <ng-container matColumnDef="AlertDevicesCount">
+      <th mat-header-cell *matHeaderCellDef> Alerta </th>
+      <td class = "bg-light" style="color: black;" mat-cell *matCellDef="let element"> {{element.AlertDevicesCount}} </td>
+    </ng-container>
+
+    <!-- Columna con la cantidad de ciudades que marcan medidas peligrosas -->
+    <ng-container matColumnDef="WarningDevicesCount">
+        <th mat-header-cell *matHeaderCellDef> Peligro </th>
+        <td class = "bg-light" style="color: black;" mat-cell *matCellDef="let element"> {{element.WarningDevicesCount}} </td>
+    </ng-container>
+
+    <!-- Columna con la cantidad de ciudades que marcan medidas normales -->
+    <ng-container matColumnDef="NormalDevicesCount">
+        <th mat-header-cell *matHeaderCellDef> Normal </th>
+        <td class = "bg-light" style="color: black;"  mat-cell *matCellDef="let element"> {{element.NormalDevicesCount}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr class = "bg-light" style="color: black;" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
